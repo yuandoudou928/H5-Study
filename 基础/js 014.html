@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>offset</title>
+    <style>
+        .box1 {
+            width: 300px;
+            height: 300px;
+            padding: 110px;
+            position: relative;
+            border: 100px solid lightcoral;
+            background-color: lightseagreen;
+        }
+        
+        .box2 {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        <div class="box2" style="background-color: red; left: 200px;"></div>
+    </div>
+
+    <script>
+        var box2 = document.getElementsByClassName("box2")[0];
+        console.log(box2.offsetLeft);
+        console.log(box2.offsetTop);
+        
+        console.log(box2.style.backgroundColor)
+        console.log(box2.style.left);
+        
+    </script>
+</body>
+
+</html>

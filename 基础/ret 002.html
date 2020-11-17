@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>创建组件</title>
+    <script type="text/javascript" src="../lib/babel.min.js"></script>
+    <script type="text/javascript" src="../lib/react.js"></script>
+    <script type="text/javascript" src="../lib/react-dom.js"></script>
+  </head>
+
+  <body>
+    <div id="box"></div>
+  </body>
+
+  <script type="text/babel">
+    // 这个构造函数就相当于一个组件
+    function Hello() {
+      return (
+        <div>
+          <h3>这是 Hello组件 中定义的元素</h3>
+        </div>
+      );
+    }
+
+    ReactDOM.render(
+      <div>
+        <Hello></Hello>
+      </div>,
+      document.getElementById("box")
+    );
+  </script>
+</html>

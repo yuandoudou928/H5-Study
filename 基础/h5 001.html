@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>H5表单类型</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: beige;
+        }
+
+        form {
+            max-width: 500px;
+            width: 100%;
+            margin: 32px auto 0;
+            font-size: 16px;
+            background-color: azure;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+        }
+
+        input {
+            width: 100%;
+            height: 25px;
+            margin-top: 2px;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <fieldset>
+            <legend>表单类型</legend>
+            <label for="">email: <input type="email" name="email" required autofocus></label>
+            <label for="">color: <input type="color" name="color"></label>
+            <label for="">url: <input type="url" name="url" id=""></label>
+            <label for="">number: <input type="number" step="3" name="number" placeholder="请选择"></label>
+            <label for="">range: <input type="range" name="range" value="100"></label>
+            <label for="">search: <input type="search" name="search" autocomplete="on"></label>
+            <label for="">tel: <input type="tel" name="tel" required></label>
+            <label for="">time: <input type="time" name="time"></label>
+            <label for="">date: <input type="date" name="date"></label>
+            <label for="">datetime: <input type="datetime" name="datetime"></label>
+            <label for="">week: <input type="week" name="week"></label>
+            <label for="">month: <input type="month" name="month"></label>
+            <label for="">datetime-local: <input type="datetime-local" name="datetime-local"></label>
+            <label for="">file: <input type="file" name="file" multiple></label>
+        </fieldset>
+
+        <fieldset>
+            <legend>数据列表</legend>
+            <input type="text" list="myData">
+            <!-- 数据列表在输入的时候，可以自动提示 -->
+            <datalist id="myData">
+                <option value="Undergraduate">本科</option>
+                <option value="Postgraduate">研究生</option>
+                <option value="Unknown">未知</option>
+            </datalist>
+        </fieldset>
+
+        <fieldset>
+            <legend>表单事件</legend>
+            <label for="">邮箱: <input type="email" id="test01"></label>
+            <label for="">输入统计: <input type="text" id="test02" disabled></label>
+            <input type="submit">
+        </fieldset>
+    </form>
+    <script>
+        var test01 = document.getElementById('test01');
+        var test02 = document.getElementById('test02');
+        var num = 0;
+        test01.oninput = function () {
+            // 输入一次，数字+1
+            num++;
+            // 将数字设置到 test02 中
+            test02.value = num;
+        }
+        test01.oninvalid = function () {
+            // 验证不通过时触发
+            this.setCustomValidity('请重新输入');
+        }
+    </script>
+
+    <div>
+        <audio autoplay="" controls>
+            <source src="一曲相思.mp3">
+            抱歉，你的浏览器暂不支持此音频格式
+        </audio>
+    </div>
+
+    <div>
+        <video src="红鞋子和七个小矮人.HD1280高清中英双字版.mp4" controls autoplay></video>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择器</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+</head>
+
+<body>
+    <div>0</div>
+    <a href="">1</a>
+    <a>2</a>
+    <a href="http://www.baidu.com">3</a>
+    <a href="" title="属性选择器">4</a>
+    <a href="https://www.baidu.com" title="属性选择器">5</a>
+    <a href="https://www.baidu.com" title="选择器">6</a>
+
+    <script>
+        $(() => {
+            var jq = $("a[href][title='属性选择器']");
+            console.log(jq);
+            
+        });
+    </script>
+</body>
+
+</html>

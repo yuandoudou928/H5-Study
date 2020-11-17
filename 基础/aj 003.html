@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>xml 解析</title>
+  </head>
+  <body>
+    <input type="button" value="获取XML数据" id="getXml" />
+  </body>
+  <script>
+    document.querySelector("#getXml").onclick = function () {
+      var xhr = new XMLHttpRequest();
+      xhr.open("get", "get_xml.php");
+      xhr.send();
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 400) {
+          console.log(xhr.responseXML);
+          var name = xhr.responseXML.querySelector("name").innerHTML;
+          console.log(name);
+        }
+      };
+    };
+  </script>
+</html>

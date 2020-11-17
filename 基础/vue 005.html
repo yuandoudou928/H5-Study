@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>跑马灯</title>
+    <script src="../lib/vue.js"></script>
+  </head>
+
+  <body>
+    <div id="box">
+      <button @click="starM">{{btn0}}</button>
+      <button @click="stopM">{{btn1}}</button>
+      <p>{{msg}}</p>
+    </div>
+  </body>
+
+  <script>
+    new Vue({
+      el: "#box",
+      data: {
+        msg: "欢迎访问我的主页",
+        btn0: "开始",
+        btn1: "停止",
+        intervalId: null,
+      },
+      methods: {
+        starM: function () {
+          if (this.intervalId != null) {
+            return;
+          }
+          this.intervalId = setInterval(() => {
+            // 截取第一个字符
+            var str = this.msg.substring(0, 1);
+            // 截取第一个后面的所有字符
+            var end = this.msg.substring(1);
+            // 将第一个字符放在最后面
+            this.msg = end + str;
+          }, 100);
+        },
+        stopM: function () {
+          clearInterval(this.intervalId);
+          this.intervalId = null;
+        },
+      },
+    });
+  </script>
+</html>

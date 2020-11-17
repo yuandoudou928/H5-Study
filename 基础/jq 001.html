@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 的引入</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: coral;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <div class="box1"></div>
+    <div id="box2"></div>
+    <div class="box3"></div>
+    <div></div>
+
+    <script>
+        $(document).ready(function () {
+            alert("jQuery 的入口函数");
+        });
+
+        $(function () {
+            var jq1 = $("div");
+            var jq2 = $(".box1");
+            var jq3 = $("#box2");
+            var jq4 = $(".box3");
+
+            console.log(jq1);
+            console.log(jq2);
+            console.log(jq3);
+            console.log(jq4);
+
+            for (const i in jq1) {
+                if (i % 2 === 0) {
+                    jq1[i].style.backgroundColor = "red";
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

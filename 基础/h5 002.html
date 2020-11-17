@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM操作</title>
+</head>
+
+<body>
+    <!-- 给标签添加自定义属性，必须以 data- 开头 -->
+    <div class="box" title="盒子" data-my-name="smyhvae" data-content="我是一个div">div</div>
+<script>
+    // 通过CSS选择器获取符合条件的第一个元素
+    var box = document.querySelector('.box');
+
+    // 自定义的属性，需要通过 dataset[] 方式来获取
+    console.log(box.dataset["content"]);
+    console.log(box.dataset["myName"])
+
+    // 设置自定义属性的值
+    var num = 100;
+    num.index = 10;
+    box.index = 1000;
+    box.dataset["content"] = "aaaa";
+    console.log(box.dataset["content"]);
+</script>
+</body>
+
+</html>

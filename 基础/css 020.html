@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex布局</title>
+    <style>
+        section {
+            width: 1000px;
+            margin: 50px auto;
+        }
+
+        section h3 {
+            font-size: 22px;
+            font-weight: normal;
+        }
+
+        ul {
+            border: 1px solid red;
+            background-color: salmon;
+            display: flex;
+            height: 500px;
+        }
+
+        ul li {
+            width: 200px;
+            height: 200px;
+            background: pink;
+            margin: 10px;
+        }
+
+        section:nth-child(1) ul {
+            justify-content: center;
+        }
+
+        section:nth-child(2) ul {
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <h3>主轴对齐</h3>
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>侧轴对齐</h3>
+        <ul>
+            <li>11</li>
+            <li>22</li>
+            <li>33</li>
+        </ul>
+    </section>
+</body>
+
+</html>

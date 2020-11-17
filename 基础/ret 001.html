@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React 环境的搭建</title>
+    <script type="text/javascript" src="../lib/babel.min.js"></script>
+    <script type="text/javascript" src="../lib/react.js"></script>
+    <script type="text/javascript" src="../lib/react-dom.js"></script>
+  </head>
+
+  <body>
+    <div id="box"></div>
+  </body>
+
+  <script type="text/babel">
+    // 1. 获取页面中的真实元素
+    var mBox = document.getElementById("box");
+
+    // 2. 创建虚拟 DOM 对象
+    var vBox = <div> Hello， React! </div>;
+
+    // 3. 将虚拟 DOM 对象渲染到页面的真实元素中去
+    ReactDOM.render(vBox, mBox);
+  </script>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>箭头函数</title>
+  </head>
+  <body>
+    <script>
+        const name = "张三";
+        const obj = {
+          name: "李四",
+          say: () => {
+            console.log(this.name);
+          },
+        };
+        obj.say();
+    </script>
+  </body>
+</html>

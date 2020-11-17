@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery 中的 Ajax</title>
+  </head>
+  <body>
+    <button id="btn">请求</button>
+    <div id="showInfo"></div>
+  </body>
+  <script src="../lib/jquery.js"></script>
+  <script>
+    $(function () {
+      $("#btn").click(function () {
+        $.ajax({
+          url:
+            "https://www.easy-mock.com/mock/5acda34663b2d05900908b65/example/query",
+          dataType: "text",
+          type: "get",
+          success: function (data) {
+            console.log(data);
+            $("#showInfo").html(data);
+          },
+          error: function (e) {
+            console.log(e);
+          },
+        });
+      });
+    });
+  </script>
+</html>

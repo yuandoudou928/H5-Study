@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>行高</title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        p {
+            background-color: cornflowerblue;
+            width: 400px;
+            height: 600px;
+            line-height: 30px;
+        }
+
+        ul {
+            background-color: coral;
+        }
+
+        li {
+            list-style-image: url(julia.png);
+            margin-left: 100px;
+        }
+
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: cyan;
+            margin-left: 100px;
+            float: left;
+        }
+
+        #div1 {
+            /* 超出部分让浏览器自行解决 */
+            overflow: auto;
+            cursor: pointer;
+        }
+
+        #div2 {
+            /* 显示超出部分 */
+            overflow: visible;
+        }
+
+        #div3 {
+            /* 剪切掉超出部分 */
+            overflow: hidden;
+            margin-bottom: 300px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 在浏览器中显示5行，每行30px，所有这个 <p> 的高度为 150px -->
+    <p>
+        测试行高测试行高测试行高测试行高测试行高测试行高测试行高测试行高测试行高测试行高测试行高测试行高测试行高测试行高测试行高测试行高测试行高测试行高测试行高测试行高测试行高测试行高测试行高测试行高测试行高测试行高测试行高测试行高
+    </p>
+
+    <ul>
+        <li>测试1</li>
+        <li>测试2</li>
+        <li>测试3</li>
+    </ul>
+
+    <div id="div1">东皋薄暮望，徙倚欲何依。树树皆秋色，山山唯落晖。牧人驱犊返，猎马带禽归。相顾无相识，长歌怀采薇。</div>
+    <div id="div2">东皋薄暮望，徙倚欲何依。树树皆秋色，山山唯落晖。牧人驱犊返，猎马带禽归。相顾无相识，长歌怀采薇。</div>
+    <div id="div3">东皋薄暮望，徙倚欲何依。树树皆秋色，山山唯落晖。牧人驱犊返，猎马带禽归。相顾无相识，长歌怀采薇。</div>
+
+    <table>
+        <tr>
+            <td>原图</td>
+            <td>灰度图</td>
+        </tr>
+
+        <tr>
+            <td>
+                <img src="icon.png" alt="">
+            </td>
+            <td>
+                <img src="icon.png" style="filter: grayscale();" alt="">
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

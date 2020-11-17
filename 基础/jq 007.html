@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>五角星评分</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        ul {
+            list-style-type: none;
+            font-size: 30px;
+            color: #ff3100;
+        }
+
+        ul li {
+            float: left; /* 浮动 */
+            cursor: pointer; /* 鼠标放在标签上时，光标显示为手状 */
+        }
+</style>
+</head>
+
+<body>
+    <ul>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+        <li></li>
+    </ul>
+</body>
+
+<script src="../lib/jquery.js"></script>
+<script>
+    // 1.鼠标悬停，当前和之前的变为实心，移开变为空心
+    // 2.鼠标点击，当前和之前的变为实心
+    $(document).ready(function(){
+        var selectStar = "★";
+        var unSelectStar = "☆";
+
+        // 鼠标悬停，变为实心
+        $("ul li").on("mouseenter", function(){
+            $(this).text(selectStar).prevAll().text(selectStar)
+            .end().nextAll().text(unSelectStar);
+        });
+
+        // 鼠标离开，变为空心
+        $("ul li").on("mouseleave", function(){
+            // 如果没有点击过，则类名为"selectStar"的个数为0
+            if ($("li.selectStar").length === 0){
+                // 如果没有点击，鼠标移开，所有的变为空心
+                $("ul li").text(unSelectStar);
+            } else {
+                // 点击的和之前的变为实心
+                $("li.selectStar").text(selectStar).prevAll().text(selectStar)
+                .end().nextAll().text(unSelectStar); // 后面的变为空心
+            }
+        });
+
+        // 鼠标点击，变为实心
+        $("ul li").on("click", function(){
+            $(this).attr("class", "selectStar").siblings().removeAttr("class");
+        });
+    });
+</script>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 的动画</title>
+
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: hotpink;
+            display: none;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <button style="margin-bottom: 20px;">显示动画</button>
+    <button style="margin-bottom: 20px;">滑入动画</button>
+    <button style="margin-bottom: 20px;">淡入动画</button>
+    <button style="margin-bottom: 20px;">自定义动画</button>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+
+<script src="../lib/jquery.js"></script>
+<script>
+    $(function () {
+        $("button:eq(0)").click(function () {
+            $("div:eq(0)").show(2000);
+        });
+
+        $("button:eq(1)").click(function () {
+            $("div:eq(1)").slideDown(2000);
+        });
+
+        $("button:eq(2)").click(function () {
+            $("div:eq(2)").fadeIn(5000);
+        });
+
+        $("button:eq(3)").click(function () {
+            var json = {
+                "width": "500px",
+                "height": "500px",
+                "display": "block"
+            };
+            $("div:eq(3)").animate(json);
+        });
+    });
+</script>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zepto 的使用</title>
+    <style>
+      #btn {
+        width: 200px;
+        height: 200px;
+        background: pink;
+        margin: 10px auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="btn">我是div</div>
+  </body>
+
+  <script src="lib/zepto.js"></script>
+  <script src="lib/touch.js"></script>
+  <script>
+    $(function () {
+      $("#btn").on("touchstart", function () {
+        alert("hello world");
+      });
+    });
+  </script>
+</html>

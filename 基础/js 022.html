@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定时器</title>
+</head>
+
+<body>
+    <script>
+        var tag = 0;
+        var si = setInterval(() => {
+            console.log("循环定时器");
+            tag++;
+            if (tag > 5) {
+                clearInterval(si);
+            }
+        }, 3000);
+        console.log(si);
+
+
+        var st = setTimeout(() => {
+            console.log("延时定时器");
+        }, 3000);
+        console.log(st);
+
+    </script>
+</body>
+
+</html>

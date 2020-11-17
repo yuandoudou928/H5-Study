@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vue-resource</title>
+    <script src="../lib/vue.js"></script>
+    <script src="../lib/vue-resource.js"></script>
+  </head>
+
+  <body>
+    <div id="box">
+      <button value="get请求" @click="getRequest"></button>
+    </div>
+  </body>
+
+  <script>
+    new Vue({
+      el: "#box",
+      created: function () {
+        this.getRequest();
+        this.postRequest();
+      },
+      methods: {
+        getRequest: function () {
+          // get 请求
+          this.$http
+            .get(
+              "https://www.easy-mock.com/mock/5acda34663b2d05900908b65/example/query"
+            )
+            .then(
+              function (result) {
+                console.log(result.body);
+              },
+              function (error) {
+                console.log(error);
+              }
+            );
+        },
+        postRequest: function () {
+          const url =
+            "https://www.easy-mock.com/mock/5acda34663b2d05900908b65/example/upload";
+          const postData = { name: "张三" }; // 设置提交的内容类型为：普通表单数据格式
+          const options = { emulateJSON: true };
+          this.$http.post(url, postData, options).then(
+            function (result) {
+              console.log(result);
+            },
+            function (error) {
+              console.log(error);
+            }
+          );
+        },
+        jsonpRequest: function () {
+          // url 后面不需要跟 callback=fn这 个参数了，jsonp 方法会自动加上
+          const url = "http://vuecms.ittun.com/api/getlunbo?id=1";
+          this.$http.jsonp(url).then(
+            function (result) {},
+            function (error) {
+              console.log(error);
+            }
+          );
+        },
+      },
+    });
+  </script>
+</html>

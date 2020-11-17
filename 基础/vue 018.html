@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue 配置 baseurl</title>
+    <script src="../lib/vue.js"></script>
+    <script src="../lib/vue-resource.js"></script>
+  </head>
+
+  <body>
+    <div id="box"></div>
+  </body>
+
+  <script>
+    // 如果配置了请求接口的 根域名，则每次单独发起 http 请求时，请求的 url 应以相对路径开头，前面不能带“/”，否则不会启用根路径做拼接
+    Vue.http.options.root =
+      "https://www.easy-mock.com/mock/5acda34663b2d05900908b65/example/";
+
+    //全局启用 emulateJSON 选项
+    Vue.http.options.emulateJSON = true;
+
+    new Vue({
+      el: "#box",
+      created: function () {
+        this.getRequest();
+      },
+      methods: {
+        getRequest: function () {
+          // get 请求
+          this.$http.get("query").then(
+            function (result) {
+              console.log(result.body);
+            },
+            function (error) {
+              console.log(error);
+            }
+          );
+        },
+      },
+    });
+  </script>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件的传播</title>
+    <style>
+        #box1 {
+            width: 200px;
+            height: 200px;
+            background-color: rosybrown;
+        }
+
+        #box2 {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="box1">
+        <div id="box2"></div>
+    </div>
+
+    <script>
+        var box1 = document.getElementById("box1");
+        var box2 = document.getElementById("box2");
+
+        var tag = false;
+
+        window.addEventListener("click", function () {
+            console.log(this);
+        }, tag)
+
+        document.addEventListener("click", function () {
+            console.log(this);
+        }, tag)
+
+        window.document.documentElement.addEventListener("click", function () {
+            console.log(this);
+        }, tag)
+
+        document.body.addEventListener("click", function () {
+            console.log(this);
+        }, tag)
+
+        box1.addEventListener("click", function () {
+            console.log(this);
+        }, tag)
+
+        box2.addEventListener("click", function () {
+            console.log(this);
+        }, tag)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>数组相关</title>
+  </head>
+  <body></body>
+  <script>
+    // 生成 1~100 的数组
+    // let arr = new Array(100).fill(0).map((item, index) => {
+    //   return index + 1;
+    // });
+    // console.log(arr);
+
+    // 数组解构赋值
+    // let [a, b, c] = [1, 2, 3];
+    // console.log(a);
+    // console.log(b);
+    // console.log(c);
+
+    // 数组合并
+    // const arr1 = [1, 2, 3];
+    // const arr2 = [3, 4, 5];
+    // const arr = [...arr1, ...arr2];
+    // console.log(arr);
+
+    // 交集
+    // const arr1 = [1, 2, 3, 4, 5];
+    // const arr2 = [3, 4, 5, 6, 7];
+    // const arr = [...new Set(arr1)].filter((item) => arr2.includes(item));
+    // console.log(arr);
+
+    // 差集
+    // const arr1 = [1, 2, 3, 4, 5];
+    // const arr2 = [4, 5, 6, 7, 8];
+    // const arr = [...new Set([...arr1, ...arr2])].filter(
+    //   (item) => !arr2.includes(item) || !arr1.includes(item)
+    // );
+    // console.log(arr);
+
+    // 数组转对象
+    const arr = [1, 2, 3];
+    const obj = { ...arr };
+    console.log(obj);
+  </script>
+</html>

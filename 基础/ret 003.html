@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>父组件传值给子组件</title>
+    <script src="../lib/react.js"></script>
+    <script src="../lib/react-dom.js"></script>
+    <script src="../lib/babel.min.js"></script>
+  </head>
+
+  <body>
+    <div id="app"></div>
+  </body>
+
+  <script type="text/babel">
+    // 父组件的数据
+    var person = {
+      name: "张三",
+      age: 20,
+    };
+
+    // 在子组件中要使用外部传递过来的数据，必须显示的在构造函数的参数列表中，定义 变量 来接收
+    // 子组件获取的数据是只读的
+    function Son(props) {
+      return (
+        <div>
+          <h3>父组件的数据是：{props.name}</h3>
+        </div>
+      );
+    }
+
+    // ... obj ：是 ES6 中的属性扩展，表示 把这个对象上的所有属性，展开，放到这个位置上
+    var vBox = (
+      <div>
+        <Son {...person}></Son>
+      </div>
+    );
+
+    ReactDOM.render(vBox, document.getElementById("app"));
+  </script>
+</html>

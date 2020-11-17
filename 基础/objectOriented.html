@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>面向对象</title>
+  </head>
+  <body></body>
+  <script>
+    function Student(name) {
+      this.mName = name;
+    }
+
+    const zhangsan = new Student("张三");
+    Student.prototype.say = function () {
+      console.log("大家好，我叫" + this.mName);
+    };
+
+    console.log(zhangsan);
+    zhangsan.say();
+
+    // 原型链
+    console.log(zhangsan.__proto__ === Student.prototype);
+    console.log(Student.prototype.__proto__ === Object.prototype);
+
+    // 镜头方法
+    Student.see = function () {
+      console.log("我是静态方法， this 不是指向的实例对象");
+      console.log(this);
+    };
+    Student.see();
+
+    // 继承
+    function Parent() {
+      this.mName = "王五";
+    }
+    function Child() {}
+
+    // Child.prototype.__proto__ = Parent.prototype;
+    Child.prototype = new Parent();
+    Child.prototype.constructor = Child;
+
+    const obj1 = new Child();
+    console.log(obj1 instanceof Child);
+    console.log(obj1 instanceof Parent);
+
+    const obj2 = new Child();
+    console.log(obj2.mName);
+
+    // 自己实现一个 new
+    function myNew(mClass, ...args) {
+      // 新建一个空对象
+      const obj = {};
+      // 执行类的构造函数
+      mClass.call(obj, ...args);
+      // 设置原型链
+      obj.__proto__ = mClass.prototype;
+      return obj;
+    }
+
+    function Dog(name) {
+      this.mName = name;
+    }
+
+    const xiaobai = myNew(Dog, "小白");
+    console.log(xiaobai.mName);
+
+    // 自己实现一个 instanceof
+    function myInstanceof(obj, mClass) {
+      // 参数检查
+      if (!obj || !mClass || !obj.__proto__ || !mClass.prototype) {
+        return false;
+      }
+
+      let current = obj;
+
+      // 一直往上找
+      while (current) {
+        if (current.__proto__ === mClass.prototype) {
+          return true;
+        }
+        current = current.__proto__;
+      }
+
+      // 全部找完了，都没有找到
+      return false;
+    }
+
+    console.log(myInstanceof(obj2, Parent));
+  </script>
+</html>

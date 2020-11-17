@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>深拷贝与浅拷贝</title>
+  </head>
+  <body></body>
+  <script>
+    let obj1 = {
+      k1: 111,
+      k2: {
+        k22: 222,
+        k33: 333,
+      },
+    };
+
+    // 赋值
+    let obj2 = obj1;
+    console.log(obj2);
+    obj2.k1 = 1111;
+    console.log(obj1);
+    console.log(obj2);
+
+    // 浅拷贝
+    function shallowClone(obj) {
+      let tempObj = {};
+      for (const key in obj) {
+        if (obj.hasOwnProperty(key)) {
+          tempObj[key] = obj[key];
+        }
+      }
+      return tempObj;
+    }
+    let obj3 = shallowClone(obj1);
+    console.log(obj3);
+    obj1.k1 = 111;
+    obj1.k2.k22 = 2222;
+    console.log(obj1);
+    console.log(obj3);
+    let obj33 = Object.assign(obj3);
+    console.log(obj33);
+
+    // 深拷贝
+    function deepClone(obj, hash = new WeakMap()) {
+      // 如果是 null 或者 undefined ，就不进行拷贝
+      if (obj === null) {
+        return obj;
+      }
+      if (obj instanceof Date) {
+        return new Date(obj);
+      }
+      if (obj instanceof RegExp) {
+        return new RegExp(obj);
+      }
+      if (typeof obj !== "object") {
+        return obj;
+      }
+      if (hash.get(obj)) {
+        return hash.get(obj);
+      }
+      let tempObj = new obj.constructor();
+      hash.set(obj, tempObj);
+      for (let key in obj) {
+        if (obj.hasOwnProperty(key)) {
+          tempObj[key] = deepClone(obj[key], hash);
+        }
+      }
+      return tempObj;
+    }
+    let obj4 = deepClone(obj1);
+    console.log(obj4);
+    obj1.k2.k22 = 222;
+    console.log(obj1);
+    console.log(obj4);
+    let obj5 = JSON.parse(JSON.stringify(obj1));
+    obj1.k2.k22 = 2222;
+    console.log(obj5);
+  </script>
+</html>

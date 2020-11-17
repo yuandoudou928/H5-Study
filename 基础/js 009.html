@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this</title>
+</head>
+
+<body>
+    <script>
+        const obj1 = {
+            name: "张三",
+            age: 19
+        }
+        function fun1() {
+            console.log(this);
+            console.log(this.obj1)
+        }
+        fun1.call(this);
+
+        function father(a, b) {
+            this.e = a;
+            this.f = b;
+        }
+        function son(c, d) {
+            father.call(this, c, d);
+        }
+        const mSon = new son("李四", 20);
+        console.log(mSon);
+
+        const arr1 = [3, 7, 10, 8];
+        var maxValue = Math.max.apply(Math, arr1);
+        console.log(maxValue);
+    </script>
+</body>
+
+</html>

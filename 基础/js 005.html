@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象</title>
+</head>
+
+<body>
+    <script>
+        var obj1 = new Object();
+        obj1.text = undefined;
+
+        var obj2 = new Object();
+        obj2.name = "我是对象";
+
+        obj1.text = obj2;
+
+        var obj3 = new Object();
+        obj3 = Object.assign({}, obj2)
+
+        console.log(obj1.text.name);
+        console.log(obj3.name)
+
+        obj2.name = "我是修改后的对象"
+
+        console.log(obj1.text.name);
+        console.log(obj3.name)
+
+        var tel = "13088889999";
+        console.log("电话：" + tel.slice(0, -4))
+
+
+        var myDate = new Date("1970/01/01 0:0:0");
+        console.log(myDate.getTime());
+
+        // 方式一：获取 Date 对象的时间戳（最常用的写法）
+        const timestamp1 = +new Date();
+        console.log(timestamp1); // 打印结果举例：1589448165370
+
+        // 方式二：获取 Date 对象的时间戳（较常用的写法）
+        const timestamp2 = new Date().getTime();
+        console.log(timestamp2); // 打印结果举例：1589448165370
+    </script>
+</body>
+
+</html>

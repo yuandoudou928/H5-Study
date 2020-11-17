@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body link="blue" alink="red" vlink="green">
+  <!-- name是html4.0以前使用的，id是html4.0以后使用的，为了向前兼容，两个都要写上，并且值是一样的 -->
+  <a href="http://www.baidu.com" target="_blank" name="topTag" id="topTag">顶部</a>
+
+  <hr size="4" width="80%" align="right" color="red" />
+
+  <h1>一级标题</h1>
+  <h2>二级标题</h2>
+  <h3>三级标题</h3>
+  <h4>四级标题</h4>
+  <h5>五级标题</h5>
+  <h6>六级标题</h6>
+
+  <p>第一个段落</p>
+  <p>
+    第二个
+    <br />
+    段落
+  </p>
+
+  <!-- div、span 作用是将包裹的内容作为一块独立的区域。区别是 div 有换行功能。div 是一个容器级标签，什么都能放；span 是一个文本级标签，只能放文字、图片、表单元素 -->
+  <div>第一个div</div>
+  <div>第二个div</div>
+  <span>第一个span</span>
+  <span>第二个span</span>
+
+  <center>内容居中</center>
+
+  <pre>
+    保留
+
+
+
+
+
+
+
+    代码中
+
+
+
+
+
+      的空格和换行
+  </pre>
+
+  这是html中的 &lt;p&gt; 标签
+
+  <br />
+  <br />
+
+  <u>下划线</u>
+  <s>删除线</s>
+  <del>删除线</del>
+  <i>斜体</i>
+  <em>斜体</em>
+  <b>粗体</b>
+
+  <br />
+  <br />
+
+  1<sup>2</sup>
+  3<sub>4</sub>
+
+  <br />
+
+  <a href="#topTag" title="点击回到页面顶部">回到顶部</a>
+  <br />
+  <!-- target 设置打开目标页面的方式。_self 在当前窗口打开; _blank 在新窗口中打开; _parent 在父窗口中打开; _top 在顶级窗口中显示 -->
+  <a href="file 001.html#topTag" target="_blank">跳转到另外一个页面的锚点去</a>
+  <br />
+  <a href="mailto:1126847496@qq.com">邮件链接：发送邮件</a>
+
+  <br />
+
+  <!-- .代表当前目录; ..代表上一层目录 -->
+  <!-- width、height 只设置一个，那么浏览器会根据设置的值，等比缩放原图 -->
+  <!-- alt 当图片不可用时，用于代替图片显示的文本 -->
+  <img src="./icon.png" width="200" height="200" alt="这是网站图标" title="这是网站图标">
+
+  <br>
+
+  <!-- type 可以设置给<ul> -->
+  <!-- ul里面只能放li，li里面什么都可以放 -->
+  <ul>
+    <li type="disc">无序列表1</li>
+    <li type="square">无序列表2</li>
+    <li type="circle">无序列表3</li>
+  </ul>
+
+  <br>
+
+  <ol type="1" start="5">
+    <li>有序列表1</li>
+    <li>有序列表2</li>
+    <li>有序列表3</li>
+  </ol>
+
+  <br>
+
+  <!-- dl 只能放dt、dd; dt、dd是容器级标签，什么都能放 -->
+  <dl>
+    <dt>四川</dt>
+    <dd>成都</dd>
+    <dd>泸州</dd>
+    <dd>巴中</dd>
+
+    <dt>重庆</dt>
+    <dd>永川</dd>
+  </dl>
+
+  <br>
+
+  <!-- style="border-collapse:collapse;" 合并边框线 -->
+  <table border="1" bordercolor="blue" style="border-collapse:collapse;" align="center" cellpadding="10" dir="rtl">
+    <caption align="center">表格标题</caption>
+
+    <tfoot>
+      <tr align="center">
+        <td>张三</td>
+        <td>男</td>
+        <td>23</td>
+      </tr>
+    </tfoot>
+
+    <tbody>
+      <tr align="center">
+        <td>豆豆</td>
+        <td colspan="2">女</td>
+        <!-- <th> 单元格内容加粗 -->
+        <th>24</th>
+      </tr>
+    </tbody>
+
+    <thead>
+      <!-- align 这一行单元格内容水平对齐方式; valign 这一行单元格内容垂直对齐方式 -->
+      <tr align="center" valign="middle">
+        <td>姓名</td>
+        <td>性别</td>
+        <td rowspan="2">年龄</td>
+      </tr>
+    </thead>
+  </table>
+
+  <br>
+
+  <a href="file 01.html" target="rtb">点击</a>
+
+  <br>
+  <br>
+
+  <iframe src="file 01.html" frameborder="0" width="800" height="300" name="myIframe"></iframe>
+
+  <br>
+  <br>
+
+  <form>
+    <fieldset>
+      <legend>必填</legend>
+      头像：<input type="file"> <br>
+      姓名：<input type="text" value="张三"> <br>
+      性别：<input type="radio" name="sex" checked="true" id="nan"><label for="nan">男</label> <input type="radio"
+        name="sex" id="nv"><label for="nv">女</label> <br>
+      学历：<input type="checkbox" name="xueli" id="dz"><label for="dz">大专</label> <input type="checkbox" name="xueli"
+        id="bk"><label for="bk">本科</label> <br>
+      密码：<input type="password" name="pas" width="300">
+    </fieldset>
+    <fieldset>
+      <legend>可填</legend>
+      城市：<select name="cicty">
+        <option value="cd">成都</option>
+        <option value="bz">巴中</option>
+      </select>
+      <br>
+      爱好：<select name="like" multiple size="3">
+        <option value="lq">篮球</option>
+        <option value="ly">旅游</option>
+        <option value="yx">游戏</option>
+        <option value="ymq">羽毛球</option>
+        <option value="yy">游泳</option>
+      </select> <br>
+      说明：<textarea name="sm" cols="30" rows="10">请输入说明</textarea>
+    </fieldset>
+    按钮：<input type="button" value="这是一个按钮"> <br>
+    <input type="submit"> <input type="reset"> <br>
+    <input type="image" src="icon.png" width="30"> <br>
+
+  </form>
+
+  <br>
+  <br>
+
+  <embed src="一曲相思.mp3" loop="1" wmode="transparent"> <br>
+
+<object data="" type="">
+  <param name="movie" value="一曲相思.mp3">
+  <param name="wmode" value="transparent">
+  <param name="quality" value="high">
+</object>
+
+<br>
+<br>
+
+<!-- scrollamount 移动速度;  scrolldelay 移动一次休息多长时间（毫秒）-->
+<marquee width="300" bgcolor="red" behavior="alternate" direction="right" scrollamount="80" scrolldelay="1000">这是一行滚动字幕</marquee>
+
+<br>
+<br>
+
+
+
+</body>
+
+</html>

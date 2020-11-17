@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>defaultProps 和 prop-types</title>
+    <script src="../lib/react.js"></script>
+    <script src="../lib/react-dom.js"></script>
+    <script src="../lib/babel.min.js"></script>
+  </head>
+
+  <body>
+    <body>
+      <div id="box"></div>
+    </body>
+  </body>
+
+  <script type="text/babel">
+    class Hello extends React.Component {
+      constructor(props) {
+        super(props);
+
+        this.state = {
+          msg: "我是默认值",
+        };
+      }
+
+      render() {
+        return (
+          <div>
+            <input
+              type="text"
+              value={this.state.msg}
+              onChange={this.changeText}
+              ref="txt"
+            />
+            <h3>{"实时显示msg中的内容：" + this.state.msg}</h3>
+          </div>
+        );
+      }
+
+      // 点击后的回调函数
+      changeText = (e) => {
+        // 获取 <input> 文本框中 文本的3种方式：
+        //  方式一：使用 document.getElementById
+
+        //  方式二：使用 ref
+        // console.log(this.refs.txt.value);
+
+        //  方式三：使用 事件对象的 参数 e 来拿
+        // 此时，e.target 就表示触发 这个事件的 事件源对象，得到的是一个原生的JS DOM 对象。在这个案例里，e.target就是指文本框
+        // console.log(e.target.value);
+
+        this.setState({
+          text: e.target.value,
+        });
+      };
+    }
+
+    ReactDOM.render(
+      <div>
+        <Hello></Hello>
+      </div>,
+      document.getElementById(box)
+    );
+  </script>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vu中的列表功能</title>
+    <script src="../lib/vue.js"></script>
+    <style type="text/css">
+      .form {
+        width: 800px;
+        margin: 20px auto;
+      }
+
+      .search {
+        width: 800px;
+        margin: 20px auto;
+      }
+
+      .table {
+        width: 800px;
+        margin: 20px auto;
+        border-collapse: collapse;
+      }
+
+      .table th {
+        background: #0094ff;
+        color: white;
+        border: 1px solid black;
+        padding: 5px;
+      }
+
+      .table tr td {
+        text-align: center;
+        font-size: 16px;
+        padding: 5px;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="box">
+      <div class="form">
+        名称：<input type="text" v-model="formData.name" />
+        <button v-on:click="addData">添加</button>
+      </div>
+
+      <div class="search">搜索：<input type="text" v-model="keywords" /></div>
+
+      <table class="table">
+        <th>编号</th>
+        <th>名称</th>
+        <th>创建时间</th>
+        <th>操作</th>
+        <tr v-show="search(keywords) == 0">
+          <td colspan="4">{{noData}}</td>
+        </tr>
+        <tr v-for="item in search(keywords)">
+          <td>{{item.id}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.ctime}}</td>
+          <td @click="delData(item.id)"><a href="#">删除</a></td>
+        </tr>
+      </table>
+    </div>
+  </body>
+
+  <script>
+    new Vue({
+      el: "#box",
+      data: {
+        noData: "暂无无数据",
+        list: [
+          { id: 1, name: "奔驰", ctime: new Date() },
+          { id: 2, name: "大众", ctime: new Date() },
+        ],
+        formData: { name: "" },
+        keywords: "",
+      },
+      methods: {
+        addData: function () {
+          var newData = {
+            id: this.list.length + 1,
+            name: this.formData.name,
+            ctime: new Date(),
+          };
+          this.list.push(newData);
+
+          this.formData.id = 0;
+          this.formData.name = "";
+        },
+        delData: function (id) {
+          if (!confirm("确定删除吗？")) {
+            return;
+          }
+
+          var index = this.list.findIndex(function (item) {
+            return item.id == id;
+          });
+
+          this.list.splice(index, 1);
+        },
+        search(keywords) {
+          // 方法1:forEach + indexOf()
+          //   var newList = [];
+          //   this.list.forEach((item) => {
+          //     if (item.name.indexOf(keywords) != -1) {
+          //       newList.push(item);
+          //     }
+          //   });
+          //   return newList;
+
+          // 方法2:filter + includes()
+          return this.list.filter((item) => {
+            if (item.name.includes(keywords)) {
+              return item;
+            }
+          });
+        },
+      },
+    });
+  </script>
+</html>

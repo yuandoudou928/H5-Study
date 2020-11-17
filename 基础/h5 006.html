@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取地理位置</title>
+    <style>
+        .text {
+            width: 400px;
+            height: 50px;
+            background-color: red;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: salmon;
+            position: relative;
+            margin-top: 100px;
+        }
+
+        /* 全屏伪类：当元素处于全屏时，改变背景颜色 */
+        .box:-webkit-full-screen {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="text"></div>
+    <script>
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(successCalback, errorCallback)
+        } else {
+            console.log("浏览器不支持地理定位")
+        }
+
+        function successCalback(position) {
+            var wd = position.coords.latitude
+            var jd = position.coords.longitude
+            console.log("地理位置：" + wd + "," + jd)
+            document.querySelector(".text").textContent = wd + "," + jd
+        }
+
+        function errorCallback(error) {
+            console.log("地理位置获取失败：" + console.error())
+        }
+    </script>
+
+    <div class="box"></div>
+    <script>
+        var box = document.querySelector(".box")
+
+        box.onclick = function () {
+            if (box.requestFullscreen) {
+                box.requestFullscreen()
+            } else if (box.webkitRequestFullScreen) {
+                box.webkitRequestFullScreen()
+            } else if (box.mozRequestFullScreen) {
+                box.mozRequestFullScreen()
+            }
+        }
+    </script>
+</body>
+
+</html>

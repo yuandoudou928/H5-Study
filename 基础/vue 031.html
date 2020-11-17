@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>父组件向子组件传递方法</title>
+    <script src="../lib/vue.js"></script>
+  </head>
+
+  <body>
+    <!-- 组件模版 -->
+    <template id="myTemp">
+      <div @click="childClick">
+        <a href="#">我是子组件，点击我调用父组件的方法</a>
+      </div>
+    </template>
+
+    <div id="box">
+      <!-- 将父组件的 show() 传递给子组件 -->
+      <childtemp @parent-show="show"></childtemp>
+    </div>
+  </body>
+
+  <script>
+    new Vue({
+      el: "#box",
+      methods: {
+        show() {
+          console.log("我是父组件的方法");
+        },
+      },
+      components: {
+        childtemp: {
+          template: "#myTemp",
+          methods: {
+            childClick() {
+              // 通过 emit 触发父组件的方法
+              this.$emit("parent-show");
+            },
+          },
+        },
+      },
+    });
+  </script>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>渐变</title>
+
+    <style>
+        div {
+            width: 600px;
+            height: 100px;
+            margin: 10px auto;
+            border: 1px solid #000;
+        }
+
+        div:nth-child(1) {
+            background-image: linear-gradient(to right, yellow, green);
+        }
+
+        div:nth-child(2) {
+            background-image: linear-gradient(yellow, green);
+            /* 默认方向：从上往下 */
+        }
+
+        div:nth-child(3) {
+            background-image: linear-gradient(135deg, yellow, green);
+        }
+
+        div:nth-child(4) {
+            background-image: linear-gradient(to right, yellow 0%, red 40%, green 70%, blue 100%);
+        }
+
+        div:nth-child(5) {
+            background-image: linear-gradient(45deg,
+                    yellow 0%,
+                    yellow 25%,
+                    blue 25%,
+                    blue 50%,
+                    red 50%,
+                    red 75%,
+                    green 75%,
+                    green 100%);
+        }
+
+        div:nth-child(6) {
+            background-image: linear-gradient(to right,
+                    #000 0%,
+                    #000 25%,
+                    #fff 25%,
+                    #fff 50%,
+                    #000 50%,
+                    #000 75%,
+                    #fff 75%,
+                    #fff 100%);
+        }
+
+        .test {
+            width: 320px;
+            height: 320px;
+            border: 1px solid red;
+            background: url(bg-img.jpg) no-repeat;
+            background-size: cover;
+
+            /* 裁剪出圆形区域 */
+            clip-path: circle(50px at 100px 100px);
+            transition: clip-path .4s;
+        }
+
+        /* 鼠标悬停时，裁剪出更大的圆形 */
+        .test:hover {
+            clip-path: circle(80px at 100px 100px);
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+    <div class="test"></div>
+</body>
+
+</html>

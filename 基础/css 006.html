@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伪类选择器</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 类选择器 */
+        .titleBar {
+            width: 960px;
+            height: 50px;
+            border: 1px solid darkgoldenrod;
+            margin: 100px auto;
+            background-color: orchid;
+        }
+
+        /* 后代选择器 */
+        .titleBar ul {
+            list-style: none;
+        }
+
+        .titleBar ul li {
+            float: left;
+            width: 120px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+        }
+
+        .titleBar ul li a {
+            display: block;
+            width: 120px;
+            height: 50px;
+            text-decoration: none;
+            color: white;
+        }
+
+        /* 伪类选择器 */
+        .titleBar ul li a:hover {
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="titleBar">
+        <ul>
+            <li><a href="">网站栏目</a></li>
+            <li><a href="">网站栏目</a></li>
+            <li><a href="">网站栏目</a></li>
+            <li><a href="">网站栏目</a></li>
+            <li><a href="">网站栏目</a></li>
+            <li><a href="">网站栏目</a></li>
+            <li><a href="">网站栏目</a></li>
+            <li><a href="">网站栏目</a></li>
+        </ul>
+    </div>
+</body>
+
+</html>

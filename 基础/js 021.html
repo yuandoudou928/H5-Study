@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOM</title>
+</head>
+
+<body>
+    <script>
+        var ua = navigator.userAgent
+
+        console.log(ua);
+
+        if (/firefox/i.test(ua)) {
+            console.log("火狐");
+        } else if (/chrome/i.test(ua)) {
+            console.log("谷歌");
+        } else if (/msie/i.test(ua)) {
+            console.log("IE");
+        } else if ("ActiveXObject" in window) {
+            console.log("IE11");
+        }
+    </script>
+</body>
+
+</html>

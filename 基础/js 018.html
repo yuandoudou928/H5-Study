@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>client</title>
+</head>
+
+<body>
+    <script>
+
+        window.onresize = fn;  //页面大小发生变化时，执行该函数。
+        //页面加载的时候直接执行一次函数，确定浏览器可视区域的宽，给背景上色
+        fn();
+
+        //封装成函数，然后指定的时候去调用和绑定函数名
+        function fn() {
+            console.log(client().width);
+            
+            if (client().width > 960) {
+                document.body.style.backgroundColor = "red";
+            } else if (client().width > 640) {
+                document.body.style.backgroundColor = "blue";
+            } else {
+                document.body.style.backgroundColor = "green";
+            }
+        }
+    </script>
+</body>
+
+</html>

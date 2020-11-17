@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据类型的区别</title>
+</head>
+
+<body>
+    <script>
+        var a = 24;
+        var b = a;
+
+        a++;
+
+        console.log(a);   // 打印结果：25
+        console.log(b);   // 打印结果：24
+
+        var obj1 = new Object();
+        obj1.name = "123";
+
+        var obj2 = obj1;
+
+        obj1.name = "456"
+
+        console.log(obj1.name);   // 打印结果：456
+        console.log(obj2.name);   // 打印结果：456
+
+        var name = "张三";
+        var age = 26;
+
+        console.log("我是" + name + "，今年" + age);
+        console.log(`我是${name}，今年${age}`);
+    </script>
+
+</body>
+
+</html>

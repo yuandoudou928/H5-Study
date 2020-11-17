@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue 动画</title>
+    <script src="../lib/vue.js"></script>
+    <style>
+      .myAnimation-enter,
+      .myAnimation-leave-to {
+        opacity: 0;
+        /* v-enter：一开始让 DOM 元素靠右 80px 的位置 */
+        transform: translateX(80px);
+      }
+
+      .myAnimation-enter-active,
+      .myAnimation-leave-active {
+        /* 淡入、淡出：all 表示所有的属性；持续时间为3秒；过渡状态：ease */
+        transition: all 3s ease;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="box">
+      <input type="button" value="切换" @click="flag=!flag" />
+      <transition name="myAnimation">
+        <h3 v-if="flag">"这是一个H3"</h3>
+      </transition>
+    </div>
+  </body>
+
+  <script>
+    new Vue({
+      el: "#box",
+      data: {
+        flag: true,
+      },
+    });
+  </script>
+</html>

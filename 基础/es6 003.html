@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise</title>
+  </head>
+  <body></body>
+  <script>
+    var promise = new Promise(function (res, rej) {
+      var data = { code: 2, msg: "么么哒" };
+      if (data.code == 0) {
+        res("成功");
+      } else {
+        rej("失败");
+      }
+    });
+    promise
+      .then(
+        function (successData) {
+          console.log("成功:" + successData);
+        },
+        function (errorData) {
+          console.log("失败:" + errorData);
+        }
+      )
+      .catch(function (data) {
+        console.log("异常:" + data);
+      });
+  </script>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动画</title>
+
+    <style>
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btnStar" style="margin-bottom: 100px;">开始</button>
+    <div id="box1"></div>
+
+    <script>
+        var btnStar = document.getElementById("btnStar");
+        var box1 = document.getElementById("box1");
+
+        // 闪现动画
+        // btnStar.onclick = function () {
+        //     box1.style.left = "400px";
+        // }
+
+        // 匀速动画
+        btnStar.onclick = function () {
+            // var si = setInterval(function () {
+                // box1.style.left = box1.offsetLeft + 10 + "px";
+                // if (box1.offsetLeft >= 500) {
+                //     clearInterval(si);
+                // }
+            // }, 20);
+            animateToRight(box1, 500);
+        }
+
+        function animateToRight(ele, target) {
+            clearInterval(ele.timer);
+            var speed = target > ele.offsetLeft ? 10 : -10;
+            ele.timer = setInterval(() => {
+                console.log("定时器");
+
+                var val = target - ele.offsetLeft;
+                if (Math.abs(val) < Math.abs(speed)) {
+                    ele.style.left = target + "px";
+                    clearInterval(ele.timer);
+                } else {
+                    ele.style.left = ele.offsetLeft + speed + "px";
+                }
+            }, 10);
+        }
+    </script>
+</body>
+
+</html>

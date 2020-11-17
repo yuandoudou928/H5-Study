@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>使用 class 关键字创建组件</title>
+    <script src="../lib/react.js"></script>
+    <script src="../lib/react-dom.js"></script>
+    <script src="../lib/babel.min.js"></script>
+  </head>
+
+  <body>
+    <div id="box"></div>
+  </body>
+
+  <script type="text/babel">
+    class Hello extends React.Component {
+      render() {
+        return (
+          <div>
+            <h3>我是一个组件</h3>
+          </div>
+        );
+      }
+    }
+
+    const vDom = (
+      <div>
+        <Hello></Hello>
+      </div>
+    );
+
+    ReactDOM.render(vDom, document.getElementById("box"));
+  </script>
+</html>

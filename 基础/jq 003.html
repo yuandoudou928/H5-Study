@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鼠标悬停，弹窗下拉菜单</title>
+    <style>
+        /* 
+         * 通用选择器
+         * 去掉标签默认的 padding 和 margin
+         */
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        /* 
+         * 标签选择器
+         * 去掉无序列表前面的小圆点
+         */
+        ul {
+            list-style: none;
+        }
+
+        /* 
+         * 类选择器
+         * 设置整个菜单的样式
+         */
+        .menu {
+            width: 330px;
+            height: 30px;
+            margin: 100px auto 0;
+            background-color: goldenrod;
+            padding-left: 10px;
+        }
+
+        /* 
+         * 后代选择器
+         * menu 中，所有 li 的背景颜色
+         */
+        .menu li {
+            background-color: yellowgreen;
+        }
+
+        /* 
+         * 子代选择器
+         * 选择所有的一级菜单
+         */
+        .menu>ul>li {
+            float: left;   /* 浮动 */
+            margin-right: 10px;
+            position: relative;   /* 相对定位：让元素相对于自己原来的位置，进行位置调整。作用：子绝父相 */
+        }
+
+        /* 
+         * 后代选择器
+         * 设置所有 a 标签的样式
+         */
+        .menu a {
+            display: block;   /* 行内元素转为块级元素：霸占一行，能设置宽、高 */
+            width: 100px;
+            height: 30px;
+            text-decoration: none;   /* 去掉下划线 */
+            color: #000;
+            line-height: 30px;   /* 行高 */
+            text-align: center;
+        }
+
+        /* 
+         * 后代选择器
+         * 选择所有的二级菜单
+         */
+        .menu li ul {
+            position: absolute;   /* 绝对定位：如果父辈元素使用类定位，则以父辈元素的左上角为参考点 */
+            top: 30px;   /* 纵坐标：父元素左上角下移30px，这里即一级菜单的高度 */
+            display: none;
+        }
+    </style>
+
+    <script src="../lib/jquery.js"></script>
+    <script>
+        $(function(){
+            // 类名选择器 + 子代选择器 ： 选择所有的一级菜单
+            var menu1 = $(".menu>ul>li");
+
+            console.log(menu1);
+            
+            // jQuery 提供的事件：当鼠标指针进入元素时
+            menu1.mouseenter(function(){
+                // 打印结果是 js 中 dom 对象。注意：jquery对象绑定的事件中，this指js中的dom对象
+                console.log(this);
+                
+                // 获取一级菜单下的二级菜单，并显示
+                // 原生 js 的写法：this.children[1].style.display = "block";
+                $(this).children("ul").stop(true, false).show(2000);
+            });
+
+            // jQuery 提供的事件：当鼠标指针离开元素时
+            menu1.mouseleave(function() {
+                $(this).children("ul").stop(true, false).hide(2000);
+            });
+
+            var menu2 = $(".menu>ul>li>ul>li");
+
+            // console.log(menu2);
+
+            menu2.mouseenter(function(){
+                $(this).css("background-color", "red");
+            });
+
+            menu2.mouseleave(function(){
+                $(this).css("background-color", "yellowgreen");
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="menu">
+        <ul>
+            <li>
+                <a href="javascript:void(0);">一级菜单1</a>
+                <ul>
+                    <li><a href="javascript:void(0);">二级菜单11</a></li>
+                    <li><a href="javascript:void(0);">二级菜单12</a></li>
+                    <li><a href="javascript:void(0);">二级菜单13</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="javascript:void(0);">一级菜单2</a>
+                <ul>
+                    <li><a href="javascript:void(0);">二级菜单21</a></li>
+                    <li><a href="javascript:void(0);">二级菜单22</a></li>
+                    <li><a href="javascript:void(0);">二级菜单23</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="javascript:void(0);">一级菜单3</a>
+                <ul>
+                    <li><a href="javascript:void(0);">二级菜单31</a></li>
+                    <li><a href="javascript:void(0);">二级菜单32</a></li>
+                    <li><a href="javascript:void(0);">二级菜单33</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>

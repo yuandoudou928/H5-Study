@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>样式表和选择器</title>
+
+    <link rel="stylesheet" type="text/css" href="a.css">
+
+    <style type="text/css">
+        /* 标签选择器 */
+        span {
+            font-size: 14px;
+            color: chartreuse;
+        }
+
+        /* ID选择器 */
+        #test01 {
+            color: brown;
+        }
+
+        /* 类选择器 */
+        .one {
+            color: coral;
+        }
+
+        .two {
+            font-weight: bold;
+        }
+
+        /* 通用选择器 */
+        * {
+            margin-left: 0px;
+        }
+
+        /* 后代选择器 */
+        div span {
+            color: cyan;
+        }
+
+        /* 下一个兄弟选择器 */
+        h3+p {
+            color: darkorchid;
+        }
+    </style>
+</head>
+
+<body>
+    <p>通过 link 标签引入<span id="test01">样式表</span></p>
+
+    <p style="color: blue;">通过 link 标签引入样式表</p>
+
+    <div class="one two">类选择器</div>
+
+    <div>后代<span>后代选择器</span></div>
+
+    <div>
+        <h3>下一个兄弟选择器</h3>
+        <p>下一个兄弟选择器</p>
+        <p>下一个兄弟选择器</p>
+        <h3>下一个兄弟选择器</h3>
+        <p>下一个兄弟选择器</p>
+        <p>下一个兄弟选择器</p>
+        <p>下一个兄弟选择器</p>
+        <h3>下一个兄弟选择器</h3>
+        <p>下一个兄弟选择器</p>
+    </div>
+</body>
+
+</html>

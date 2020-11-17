@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS3 属性选择器</title>
+
+    <style>
+        div {
+            width: 100px;
+            height: 0px auto;
+            border: 2px solid red;
+        }
+
+        .divbox1 p[title] {
+            color: royalblue;
+        }
+
+        .divbox1 p[class="abc"] {
+            color: salmon;
+        }
+
+        .divbox1 p[class~="bcd"] {
+            color: red;
+        }
+
+        .divbox1 p[class |="cde"] {
+            color: green;
+        }
+
+        .divbox1 p[class ^="def"] {
+            color: yellowgreen;
+        }
+
+        .divbox1 p[class $="efg"] {
+            color: violet;
+        }
+
+        .divbox1 p[class *="fgh"] {
+            color: turquoise;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="divbox1">
+        <p title="">属性选择器</p>
+        <p class="abc">属性选择器</p>
+        <p class="abc bcd">属性选择器</p>
+        <p class="cde">属性选择器</p>
+        <p class="cde-abc">属性选择器</p>
+        <p class="def000">属性选择器</p>
+        <p class="000efg">属性选择器</p>
+        <p class="000fgh000">属性选择器</p>
+    </div>
+</body>
+
+</html>

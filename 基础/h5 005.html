@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖拽练习</title>
+    <style>
+        /* 第一个外框 */
+        .one {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #000;
+        }
+
+        /* 第二个外框 */
+        .two {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #000;
+            position: absolute;
+            left: 600px;
+            top: 200px;
+        }
+
+        /* 可拖拽的小圆圈 */
+        .one>div,
+        .two>div {
+            width: 73px;
+            height: 73px;
+            border: 1px solid #000;
+            border-radius: 50%;
+            background-color: red;
+            float: left;
+            text-align: center;
+            line-height: 73px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 第一个框，里面有8个小圆圈 -->
+    <div class="one">
+        <div draggable="true">1</div>
+        <div draggable="true">2</div>
+        <div draggable="true">3</div>
+        <div draggable="true">4</div>
+        <div draggable="true">5</div>
+        <div draggable="true">6</div>
+        <div draggable="true">7</div>
+        <div draggable="true">8</div>
+    </div>
+
+    <!-- 第二个框 -->
+    <div class="two"></div>
+
+    <script>
+        // 获取第一个框里面的所有小圆圈
+        var boxs = document.querySelectorAll('.one div')
+
+        // 获取第二个框
+        var two = document.querySelector('.two')
+
+        var temp = null
+
+        for (var i = 0; i < boxs.length; i++) {
+            // 拖拽开始
+            boxs[i].ondragstart = function () {
+                temp = this
+            }
+
+            // 拖拽结束
+            boxs[i].ondragend = function () {
+                temp = null
+            }
+        }
+
+        // 为了让第二个框走 ondrop()
+        two.ondragover = function (e) {
+            console.log("停留鼠标")
+            e.preventDefault()
+        }
+
+        // 第二个框上松开鼠标
+        two.ondrop = function () {
+            console.log("松开鼠标")
+            // 将拖拽的小圆圈追加到第二个框
+            this.appendChild(temp)
+        }
+    </script>
+</body>
+
+</html>

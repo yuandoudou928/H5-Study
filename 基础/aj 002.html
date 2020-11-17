@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ajax 的 post 请求</title>
+  </head>
+  <body></body>
+  <script>
+    const url =
+      "https://www.easy-mock.com/mock/5acda34663b2d05900908b65/example/upload";
+
+    var xhr = new XMLHttpRequest();
+
+    xhr.open("post", url, true);
+
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    xhr.send("name=测试post请求");
+
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        console.log(xhr.responseText);
+      }
+    };
+  </script>
+</html>

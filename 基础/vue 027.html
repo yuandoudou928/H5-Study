@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>自定义组件的动态展示和点击事件</title>
+    <script src="../lib/vue.js"></script>
+  </head>
+
+  <body>
+    <template id="myReg">
+      <div>
+        <h2 @click="reg"><a href="">{{myText}}</a></h2>
+      </div>
+    </template>
+
+    <div id="box">
+      <registered></registered>
+      <registered></registered>
+    </div>
+  </body>
+
+  <script>
+    Vue.component("registered", {
+      template: "#myReg",
+      // 在为组件添加数据时，data 不再是对象了，而是 function，而且要通过 return 的形式进行返回；否则，页面上是无法看到效果的
+      data: function () {
+        return {
+          myText: "我是自定义 “注册” 组件",
+        };
+      },
+      methods: {
+        reg: function () {
+          alert("注册成功");
+        },
+      },
+    });
+
+    new Vue({
+      el: "#box",
+    });
+  </script>
+</html>

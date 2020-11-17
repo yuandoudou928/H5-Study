@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>半场动画</title>
+    <script src="../lib/vue.js"></script>
+    <style>
+      .ball {
+        width: 20px;
+        height: 20px;
+        background-color: red;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="box">
+      <input type="button" value="加入购物车" @click="flag = !flag" />
+      <transition
+        @before-enter="beforeEnter"
+        @enter="enter"
+        @after-enter="afterEnter"
+      >
+        <div class="ball" v-show="flag"></div>
+      </transition>
+    </div>
+  </body>
+
+  <script>
+    new Vue({
+      el: "#box",
+      data: {
+        flag: false,
+      },
+      methods: {
+        // 动画钩子函数的第一个参数：el ，表示 要执行动画的那个 DOM 元素，是个原生的 JS DOM 对象
+        beforeEnter(el) {
+          // 设置小球开始动画前的 起始位置
+          el.style.transform = "translate(0, 0)";
+        },
+        // enter() 函数里，函数的第二个参数要加上 done，函数体的最后一行要写 done()
+        // Vue官方文档的解释是这样：当只用 JavaScript 过渡的时候，在enter和leave中必须使用done进行回调。否则，它们将被同步调用，过渡会立即完成
+        enter(el, done) {
+          // 这句没有实际作用，但是如果不写，就没有动画效果。可以认为是在强制刷新动画
+          el.offsetWidth;
+
+          el.style.transform = "translate(150px, 300px)";
+          el.style.transition = "all 1s ease";
+
+          // done() 其实就是 afterEnter() 函数，即 done 是 afterEnter 函数的引用
+          done();
+        },
+        afterEnter(el) {
+          this.flag = !this.flag;
+        },
+      },
+    });
+  </script>
+</html>

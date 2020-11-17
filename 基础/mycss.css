@@ -1,0 +1,15 @@
+.box {
+  width: 100px;
+}
+.box > ul {
+  color: red;
+}
+.box > ul > li {
+  border: 1px solid yellow;
+}
+.box > ul > li:hover {
+  color: #123;
+}
+.box #box2 {
+  width: 50px;
+}

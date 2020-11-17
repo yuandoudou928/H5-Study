@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web存储</title>
+</head>
+
+<body>
+    <input type="text">
+
+    <section>
+        <button>保存</button>
+        <button>获取</button>
+        <button>更新</button>
+        <button>删除</button>
+        <button>清除</button>
+    </section>
+
+    <div>
+        <button class="switchBtn">当前为 session</button>
+    </div>
+
+    <script>
+        // true 为 session 存储; false 为 locak 存储
+        var tag = true
+
+        var switchBtn = document.querySelector(".switchBtn")
+
+        switchBtn.onclick = function () {
+            if (tag) {
+                switchBtn.innerHTML = "当前为 locak"
+            } else {
+                switchBtn.innerHTML = "当前为 session"
+            }
+            tag = !tag
+        }
+
+        var txt = document.querySelector("input")
+
+        var btns = document.querySelectorAll("section > button")
+
+        btns[0].onclick = function () {
+            if (tag) {
+                window.sessionStorage.setItem("aaa", txt.value)
+            } else {
+                window.localStorage.setItem("bbb", txt.value)
+            }
+        }
+
+        btns[1].onclick = function () {
+            if (tag) {
+                txt.value = window.sessionStorage.getItem("aaa")
+            } else {
+                txt.value = window.localStorage.getItem("bbb")
+            }
+        }
+
+        btns[2].onclick = function () {
+            if (tag) {
+                window.sessionStorage.setItem("aaa", txt.value)
+            } else {
+                window.localStorage.setItem("bbb", txt.value)
+            }
+        }
+
+        btns[3].onclick = function () {
+            if (tag) {
+                window.sessionStorage.removeItem("aaa")
+            } else {
+                window.localStorage.removeItem("bbb")
+            }
+        }
+
+        btns[4].onclick = function () {
+            if (tag) {
+                window.sessionStorage.clear()
+            } else {
+                window.localStorage.clear()
+            }
+        }
+
+        window.addEventListener("online", function () {
+            alert("网络已连接")
+        })
+
+        window.addEventListener("offline", function () {
+            alert("网络已断开")
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖拽</title>
+
+    <style>
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background-color: chartreuse;
+            text-align: center;
+        }
+
+        .box2 {
+            width: 200px;
+            height: 200px;
+            background-color: coral;
+            text-align: center;
+            position: relative;
+            left: 300px;
+            top: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1" draggable="true">拖拽元素</div>
+
+    <script>
+        var box1 = document.querySelector('.box1')
+
+        box1.ondragstart = function () {
+            // console.log("拖拽开始")
+        }
+
+        box1.ondragleave = function () {
+            // console.log("鼠标离开")
+        }
+
+        box1.ondragend = function () {
+            // console.log("拖拽结束")
+        }
+
+        box1.ondrag = function () {
+            // console.log("拖拽中...")
+        }
+    </script>
+
+    <div class="box2">目标元素</div>
+
+    <script>
+        var box2 = document.querySelector(".box2")
+
+        box2.ondragenter = function () {
+            console.log("拖拽元素进入")
+        }
+
+        box2.ondragover = function (e) {
+            // 阻止拖拽事件的默认行为。不加这句，ondrop() 无法触发
+            e.preventDefault()
+            console.log("拖拽停留")
+        }
+
+        box2.ondrop = function () {
+            console.log("鼠标在目标元素松开")
+        }
+
+        box2.ondragleave = function () {
+            console.log("鼠标离开目标元素")
+        }
+    </script>
+
+</body>
+
+</html>

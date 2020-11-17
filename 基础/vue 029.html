@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>使用 <component> 标签实现组件间的切换</title>
+    <script src="../lib/vue.js"></script>
+    <style>
+      .v-enter,
+      .v-leave-to {
+        opacity: 0;
+        transform: translateY(150px);
+      }
+
+      .v-enter-active,
+      .v-leave-active {
+        transition: all 0.5s ease;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="box">
+      <a href="" @click.prevent="showCom='login'">登录</a>
+      <a href="" @click.prevent="showCom='register'">注册</a>
+      <a href="" @click.prevent="showCom='exit'">退出</a>
+
+      <!-- 通过 mode 属性,设置组件切换时候的 过渡动画 -->
+      <transition mode="out-in">
+        <!-- <component> 是一个占位符
+          :is 属性,可以用来指定要展示的组件的名称
+        -->
+        <component :is="showCom"></component>
+      </transition>
+    </div>
+  </body>
+
+  <script>
+    Vue.component("login", {
+      template: "<h3>登录组件</h3>",
+    });
+
+    Vue.component("register", {
+      template: "<h3>注册组件</h3>",
+    });
+
+    Vue.component("exit", {
+      template: "<h3>退出组件</h3>",
+    });
+
+    new Vue({
+      el: "#box",
+      data: {
+        showCom: "login",
+      },
+    });
+  </script>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>缓动</title>
+    <style>
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: chocolate;
+            left: 1px;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn" style="margin-bottom: 50px;">开始</button>
+
+    <div id="box1"></div>
+
+    <script>
+        var btn = document.getElementById("btn");
+        var box1 = document.getElementById("box1");
+
+        btn.onclick = function () {
+            // var si = setInterval(function () {
+            //     var box1Left = box1.offsetLeft;
+            //     var box1Step = (400 - box1Left) / 10;
+            //     var boxPosition = box1Left + box1Step + "px";
+
+            //     console.log(`当前位置：${box1Left} ，步长：${box1Step} ，最终位置：${boxPosition}`);
+
+
+            //     box1.style.left = boxPosition
+            //     if (box1Left > 400 - 5) {
+            //         clearInterval(si);
+            //     }
+            // }, 10);
+            animate(box1, 400);
+        }
+
+        function animate(ele, target) {
+            clearInterval(ele.timer);
+            ele.timer = setInterval(() => {
+                var eleLeft = ele.offsetLeft;
+                var eleStep = (target - eleLeft) / 10;
+                eleStep = eleStep > 0 ? Math.ceil(eleStep) : Math.floor(eleStep);
+                ele.style.left = eleLeft + eleStep + "px";
+
+                // 如果当前位置与要移动到的位置距离小于步长，则直接移动到最终位置
+                if (Math.abs(target - ele.offsetLeft) < Math.abs(eleStep)) {
+                    ele.style.left = target + "px";
+                    clearInterval(ele.timer);
+                }
+            }, 30);
+        }
+    </script>
+</body>
+
+</html>

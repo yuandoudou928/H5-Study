@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数</title>
+</head>
+
+<body>
+    <div id="btn1">按钮1</div>
+
+    <script>
+        var obj = {
+            str: "我是一个字符串",
+            fun1: function () {
+                console.log("我是一个方法");
+            }
+        }
+        obj.fun1();
+
+        (function () {
+            console.log("我是一个立即执行的函数");
+        })();
+
+        function fun2() {
+            console.log("通过构造函数来调用");
+        }
+        new fun2();
+
+        var btn = document.getElementById("btn1");
+        btn.onclick = function () {
+            console.log("绑定事件函数");
+        };
+
+        var num = 0;
+        var dsq = setInterval(function () {
+            num++;
+            console.log(`定时器：${num}`);
+            if (num === 10) {
+                clearInterval(dsq);
+            }
+        }, 1000);
+
+        function fun3(a, b) {
+            console.log(`${a}, ${b}`);
+        }
+        fun3("a", "b", "c");
+        fun3("d");
+
+        function fun4() {
+            console.log(this);
+            console.log(arguments);
+        }
+        fun4();
+
+        function fun5() {
+            console.log("我是实参：" + arguments[0]);
+        }
+        fun5("aaa");
+
+        if (true) {
+            var num = 12331;
+            console.log("num:" + num);
+        }
+        console.log("num:" + num);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise 封装 Ajax 请求</title>
+  </head>
+  <body></body>
+  <script>
+    const url = "https://www.baidu.com";
+    const request = require("request");
+
+    function requestData(urlStr) {
+      return Promise((resolve, reject) => {
+        request(urlStr, function (response) {
+          console.log(response);
+
+          if (response.retCode == 200) {
+            resolve(response);
+          } else {
+            reject("数据请求失败");
+          }
+        });
+      });
+    }
+
+    requestData(url)
+      .then((success) => {
+        // 成功的处理
+      })
+      .catch((failure) => {
+        // 失败的处理
+      });
+  </script>
+</html>

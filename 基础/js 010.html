@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高阶函数</title>
+</head>
+
+<body>
+    <script>
+        function fun1(a, callback) {
+            console.log(a);
+            callback();
+        }
+        fun1("我是原函数", function () {
+            console.log("我是参数函数");
+        });
+
+        function fun3(b) {
+            console.log(b);
+            return function fun4() {
+                console.log("我是返回值");
+            }
+        }
+        var mFun3 = fun3(10);
+        mFun3();
+    </script>
+</body>
+
+</html>

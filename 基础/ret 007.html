@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>defaultProps 和 prop-types</title>
+    <script src="../lib/react.js"></script>
+    <script src="../lib/react-dom.js"></script>
+    <script src="../lib/babel.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/prop-types/15.5.10/prop-types.js"></script>
+  </head>
+
+  <body>
+    <body>
+      <div id="box"></div>
+    </body>
+  </body>
+
+  <script type="text/babel">
+    class Hello extends React.Component {
+      constructor(props) {
+        super(props);
+
+        this.state = {
+          msg: props.text,
+        };
+      }
+
+      static defaultProps = {
+        text: "我是默认值",
+      };
+
+      static propTypes = {
+        text: ReactTypes.string,
+      };
+
+      render() {
+        return (
+          <div>
+            {/* 绑定点击事件 */}
+            <h2 onClick={this.changeText}>{this.state.msg}</h2>
+          </div>
+        );
+      }
+
+      // 点击后的回调函数
+      changeText = () => {
+        this.setState({
+          text: "我是修改后的值",
+        });
+      };
+    }
+
+    ReactDOM.render(
+      <div>
+        <Hello></Hello>
+      </div>,
+      document.getElementById(box)
+    );
+  </script>
+</html>

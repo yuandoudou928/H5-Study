@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>层叠性</title>
+    <style>
+        /* 1个ID选择器，1个类选择器，1个标签选择器 */
+        #box1 .hezi2 p {
+            color: red;
+        }
+
+        /* 1个ID选择器，0个类选择器，3个标签选择器 */
+        div div #box3 p {
+            color: green;
+        }
+
+        /* 0个ID选择器，3个类选择器，4个标签选择器 */
+        div.hezi1 div.hezi2 div.hezi3 p{
+            color: hotpink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hezi1" id="box1">
+        <div class="hezi2" id="box2">
+            <div class="hezi3" id="box3">
+                <p>猜猜我的颜色</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
