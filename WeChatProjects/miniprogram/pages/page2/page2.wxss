@@ -1,0 +1,10 @@
+.box {
+  width: 100rpx;
+  height: 100rpx;
+  background: skyblue;
+  margin-top: 10rpx;
+}
+
+.txt {
+  text-align: center;
+}

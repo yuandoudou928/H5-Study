@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>产品登录页</title>
+    <style>
+      * {
+        padding: 0px;
+        margin: 0px;
+      }
+
+      body {
+        background-color: #eeeeee;
+      }
+
+      #header {
+        width: 100%;
+        position: fixed;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #eeeeee;
+      }
+
+      #header-img {
+        width: 15%;
+      }
+
+      #nav-bar {
+        right: 0px;
+        top: 0px;
+        width: 40%;
+        display: flex;
+        justify-content: space-around;
+      }
+
+      .nav-link {
+        font-size: 20px;
+      }
+
+      a {
+        text-decoration: none;
+        color: black;
+        text-transform: capitalize;
+      }
+
+      main {
+        padding-top: 100px;
+      }
+
+      #input-box {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      #email {
+        width: 15%;
+        padding: 10px;
+        margin-top: 20px;
+      }
+
+      #submit {
+        padding: 5px 10px 5px 10px;
+        margin-top: 20px;
+        background-color: #eac545;
+        border: none;
+        border-radius: 3px;
+      }
+
+      #submit:hover {
+        background-color: #f2a83b;
+      }
+
+      #features,
+      pricing {
+        width: 50%;
+        justify-content: center;
+        margin: auto;
+      }
+
+      .features-item {
+        padding: 30px;
+      }
+
+      #how-it-works {
+        width: 30%;
+        height: 300px;
+        margin-top: 100px;
+        margin: auto;
+      }
+
+      #video {
+        width: 100%;
+        height: 100%;
+      }
+
+      #pricing {
+        width: 50%;
+        display: flex;
+        margin: auto;
+        margin-top: 100px;
+        flex-direction: row;
+      }
+
+      @media (max-width: 900px) {
+        #pricing {
+          width: 50%;
+          display: flex;
+          margin: auto;
+          margin-top: 100px;
+          flex-direction: column;
+        }
+      }
+
+      .pricing-item {
+        width: 100%;
+        height: 310px;
+        margin: 10px;
+        border: 1px solid black;
+        border-radius: 3px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .pricing-title {
+        height: 15%;
+        background-color: #dddddd;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-transform: uppercase;
+      }
+
+      .pricing-money {
+        align-self: center;
+        margin-top: 20px;
+      }
+
+      ul {
+        list-style: none;
+        text-align: center;
+        margin-top: 10px;
+      }
+
+      li {
+        margin-top: 10px;
+      }
+
+      .pricing-btn {
+        text-transform: uppercase;
+        align-self: center;
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #eac545;
+        border: none;
+        border-radius: 3px;
+        font-size: 15px;
+      }
+
+      .pricing-btn:hover {
+        background-color: rgb(242, 168, 59);
+      }
+
+      #footer {
+        width: 48%;
+        background-color: #dddddd;
+        margin: auto;
+        margin-top: 40px;
+        border-radius: 3px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+      }
+
+      .footer-li {
+        margin-left: 20px;
+        margin-bottom: 10px;
+        float: right;
+        font-weight: bold;
+        font-size: 16px;
+      }
+
+      .footer-text {
+        color: #444444;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <header id="header">
+        <img id="header-img" src="https://s3.amazonaws.com/freecodecamp/original_trombones.png">
+        
+        <nav id="nav-bar">
+          <div class="nav-link"><a href="#features">features</a></div>
+          <div class="nav-link"><a href="#how-it-works">how it works</a></div>
+          <div class="nav-link"><a href="#pricing">pricing</a></div>
+        </nav>
+      </header>
+      
+      <main id="main">
+        <section >
+          <form id="input-box" action="https://www.freecodecamp.com/email-submit">
+            <h2 id="input-title">Handcrafted, home-made masterpieces</h2>
+            <input id="email" type="emali" required placeholder="Enter your emali address">
+            <button id="submit" type="submit">GET STARTED</button>
+          </form>
+        </section>
+        
+        <section id="features">
+          <div class="features-item">
+            <h2>Premium Materials</h2>
+            <p>Our trombones use the shiniest brass which is sourced locally. This will increase the longevity of your purchase.</p>
+          </div>
+          
+          <div class="features-item">
+            <h2>Fast Shipping</h2>
+            <p>We make sure you recieve your trombone as soon as we have finished making it. We also provide free returns if you are not satisfied.</p>
+          </div>
+          
+          <div class="features-item">
+            <h2>Quality Assurance</h2>
+            <p>For every purchase you make, we will ensure there are no damages or faults and we will check and test the pitch of your instrument.</p>
+          </div>
+        </section>
+        
+        <section id="how-it-works">
+          <video id="video" controls>
+           <source src="https://www.runoob.com/try/demo_source/mov_bbb.mp4" type="video/mp4"> 
+          <video>
+        </section>
+            
+        <section id="pricing">
+          <div class="pricing-item">
+            <span class="pricing-title ">TENOR TROMBONE</span>
+            <h2 class="pricing-money">$600</h2>
+            <ul>
+              <li>Lorem ipsum.</li>
+              <li>Lorem ipsum.</li>
+              <li>Lorem ipsum dolor.</li>
+              <li>Lorem ipsum.</li>
+            </ul>
+            <button class="pricing-btn">select</button>
+          </div>
+          
+          <div class="pricing-item">
+            <span class="pricing-title ">BASS TROMBONE</span>
+            <h2 class="pricing-money">$900</h2>
+            <ul>
+              <li>Lorem ipsum.</li>
+              <li>Lorem ipsum.</li>
+              <li>Lorem ipsum dolor.</li>
+              <li>Lorem ipsum.</li>
+            </ul>
+            <button class="pricing-btn">select</button>
+          </div>
+          
+          <div class="pricing-item">
+            <span class="pricing-title ">VALVE TROMBONE</span>
+            <h2 class="pricing-money">$1200</h2>
+            <ul>
+              <li>Lorem ipsum.</li>
+              <li>Lorem ipsum.</li>
+              <li>Lorem ipsum dolor.</li>
+              <li>Lorem ipsum.</li>
+            </ul>
+            <button class="pricing-btn">select</button>
+          </div>
+        </section>
+      </main>
+          
+      <footer id="footer">
+        <ul class="footer-ul">
+          <li class="footer-li">Privacy</li>
+          <li class="footer-li">Terms</li>
+          <li class="footer-li">Contact</li>
+        </ul>
+        <span class="footer-text">Copyright 2016, Original Trombones</span>
+      </footer>
+  </body>
+</html>

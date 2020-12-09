@@ -1,0 +1,7 @@
+<view class="box" bindtap="addNum">
+  <text class="txt">{{num}}</text>
+</view>
+
+<view class="box" bindtap="radColor" style="background:{{newColor}}">
+  <text>随机颜色</text>
+</view>

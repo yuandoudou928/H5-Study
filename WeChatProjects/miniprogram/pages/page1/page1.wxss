@@ -1,0 +1,30 @@
+/* miniprogram/pages/page1/page1.wxss */
+.box1 {
+  width: 100px;
+  background-color: royalblue;
+  color: red;
+  margin-top: 10px;
+}
+
+.box1Hover {
+  background-color: red;
+}
+
+.scrollBox {
+  background-color: sandybrown;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.scrollItem {
+  width: 100px;
+  height: 100px;
+  background-color: seagreen;
+  display: inline-block;
+  margin-right: 10px;
+  text-align: center;
+}
+
+.scrollItem:last-child {
+  margin-right: 0px;
+}

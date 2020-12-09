@@ -1,0 +1,18 @@
+<view class="uploader">
+  <navigator url="../index/index" open-type="reLaunch" class="uploader-text">返回首页</navigator>
+</view>
+
+<view class="box1" hover-class="box1Hover" hover-stay-time="50">
+  <text>第一个盒子</text>
+</view>
+
+<image src="http://api.yunwk.top/frp/frp_css/images/Group171.svg" show-menu-by-longpress></image>
+
+<scroll-view class="scrollBox" scroll-x>
+  <view class="scrollItem">111</view>
+  <view class="scrollItem">222</view>
+  <view class="scrollItem">333</view>
+  <view class="scrollItem">444</view>
+  <view class="scrollItem">555</view>
+  <view class="scrollItem">666</view>
+</scroll-view>

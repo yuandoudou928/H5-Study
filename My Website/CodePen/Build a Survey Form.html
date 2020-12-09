@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>调查表</title>
+    <style>
+      :root {
+        background-image: url("https://cdn.freecodecamp.org/testable-projects-fcc/images/survey-form-background.jpeg");
+        --white-text: white;
+      }
+
+      .title-color {
+        color: rgb(243, 243, 243);
+      }
+
+      main {
+        text-align: center;
+      }
+
+      main > form {
+        width: 600px;
+        background-color: rgb(38, 39, 68);
+        text-align: left;
+        margin: 0 auto;
+        border-radius: 5px;
+        padding: 30px;
+        color: var(--white-text);
+      }
+
+      .item {
+        padding-bottom: 30px;
+      }
+
+      .form-item-title {
+        font-size: 18px;
+      }
+
+      .input-text {
+        width: 570px;
+        height: 35px;
+        border-radius: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 15px;
+        border: none;
+        margin-top: 10px;
+      }
+
+      .recommend {
+        display: block;
+        padding-bottom: 5px;
+        font-size: 15px;
+      }
+
+      textarea {
+        width: 570px;
+        font-size: 15px;
+        padding: 10px;
+        border-radius: 5px;
+      }
+
+      [type="submit"] {
+        width: 590px;
+        font-size: 15px;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: rgb(92, 172, 108);
+        color: var(--white-text);
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1 id="title" class="title-color">freeCodeCamp Survey Form</h1>
+      <p id="description" class="title-color">
+        Thank you for taking the time to help us improve the platform
+      </p>
+
+      <form id="survey-form">
+        <div class="item">
+          <label id="name-label" class="form-item-title" for="name">Name</label>
+          <input
+            id="name"
+            class="input-text"
+            type="text"
+            placeholder="Enter your name"
+            required
+          />
+        </div>
+
+        <div class="item">
+          <label id="email-label" class="form-item-title" for="email"
+            >Email</label
+          >
+          <input
+            id="email"
+            class="input-text"
+            type="email"
+            placeholder="Enter your emali"
+            required
+          />
+        </div>
+
+        <div class="item">
+          <label id="number-label" class="form-item-title" for="number"
+            >Age</label
+          ><span>(optional)</span>
+          <input
+            id="number"
+            class="input-text"
+            type="number"
+            placeholder="Enter your age"
+            min="18"
+            max="30"
+          />
+        </div>
+
+        <div class="item">
+          <span class="form-item-title"
+            >Which option best describes your current role?</span
+          >
+          <select id="dropdown" class="input-text">
+            <option disabled selected value>Select current sole</option>
+            <option value="Student">Student</option>
+            <option value="Full Time Job">Full Time Job</option>
+            <option value="Full Time Learner">Full Time earner</option>
+            <option value="Prefre not to say">Prefer not to say</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="item">
+          <span class="form-item-title"
+            >Would you recommend freeCodeCamp to a friend?</span
+          >
+          <label class="recommend" for="definitely">
+            <input
+              id="definitely"
+              type="radio"
+              name="recommend"
+              value="Definitely"
+              checked
+            />
+            Definitely
+          </label>
+          <label class="recommend" for="maybe">
+            <input id="maybe" type="radio" name="recommend" value="Maybe" />
+            Maybe
+          </label>
+          <label class="recommend" for="notsure">
+            <input
+              id="notsure"
+              type="radio"
+              name="recommend"
+              value="Not sure"
+            />
+            Not sure
+          </label>
+        </div>
+
+        <div class="item">
+          <span class="form-item-title">Any comments or suggestions?</span>
+          <textarea
+            rows="8"
+            placeholder="Enter your comment here..."
+          ></textarea>
+        </div>
+
+        <div>
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>个人作品集</title>
+    <style>
+      * {
+        padding: 0px;
+        margin: 0px;
+        --text-color: #f0f0f0;
+      }
+
+      #navbar {
+        width: 100%;
+        height: 80px;
+        background-color: #af3d47;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        position: fixed;
+        top: 0px;
+      }
+
+      .header-ul {
+        list-style: none;
+      }
+
+      .header-li {
+        float: right;
+      }
+
+      .header-a {
+        text-decoration: none;
+        color: var(--text-color);
+        margin-right: 40px;
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      #welcome-section {
+        width: 100%;
+        height: 100vh;
+        background-color: #2a2a2d;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #welcome-title {
+        color: var(--text-color);
+        font-size: 50px;
+      }
+
+      .welcome-p {
+        color: #af3d47;
+        font-size: 30px;
+      }
+
+      /* 垂直布局，水平、垂直方向居中 */
+      #projects {
+        background-color: #48567a;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 50px 0;
+      }
+
+      #project-tile {
+        color: var(--text-color);
+        font-size: 35px;
+        border-bottom: 3px solid var(--text-color);
+        padding: 0px 10px 5px 10px;
+      }
+
+      .project-list {
+        width: 65%;
+        margin-top: 50px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      .list-item {
+        width: 350px;
+        height: 350px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+      }
+
+      @media (max-width: 1000px) {
+        .project-list {
+          width: 65%;
+          margin-top: 50px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .list-item {
+          margin-top: 20px;
+        }
+      }
+
+      img {
+        width: 350px;
+        height: 290px;
+      }
+
+      .item-text {
+        width: 100%;
+        height: 60px;
+        background-color: #323840;
+        color: var(--text-color);
+        font-size: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0px 0px 3px 3px;
+      }
+
+      .item-select {
+        color: #33383f;
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+
+      .list-item:hover .item-select {
+        color: #ef855b;
+      }
+
+      #show-all {
+        color: var(--text-color);
+        font-size: 20px;
+        background-color: #323840;
+        padding: 5px 15px;
+        border-radius: 3px;
+        text-decoration: none;
+        margin-top: 50px;
+      }
+
+      #show-all:hover {
+        background-color: #af3d47;
+      }
+
+      #more-section {
+        height: 80vh;
+        background-color: #323840;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: var(--text-color);
+      }
+
+      .more-title {
+        font-size: 50px;
+      }
+
+      .more-p {
+        font-size: 20px;
+        font-style: italic;
+      }
+
+      #more-section ul {
+        list-style: none;
+        margin-top: 30px;
+      }
+
+      #more-section ul li {
+        font-size: 26px;
+        float: left;
+        margin: 0px 20px;
+        position: relative;
+      }
+
+      #more-section ul li:hover {
+        animation-name: moredown;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in;
+      }
+
+      @keyframes moredown {
+        0% {
+          top: 0px;
+        }
+        100% {
+          top: 10px;
+        }
+      }
+
+      #more-section ul li a {
+        text-decoration: none;
+        color: var(--text-color);
+      }
+
+      footer {
+        height: 100px;
+        border-top: 3px solid #af3d47;
+        background-color: #323840;
+        color: var(--text-color);
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav id="navbar">
+        <ul class="header-ul">
+          <li class="header-li"><a class="header-a" href="#contact">Contact</a></li>
+          <li class="header-li"><a class="header-a" href="#projects">Work</a></li>
+          <li class="header-li"><a class="header-a" href="#welcome-section">About</a></li>
+        </ul>
+      </nav>
+      
+      <main>
+        <section id="welcome-section">
+          <h1 id="welcome-title">Hey I am Mimic</h1>
+          <p class="welcome-p">a web developer</p>
+        </section>
+      
+        <section id="projects">
+          <h1 id="project-tile">These are some of my projects</h1>
+      
+          <div class="project-list">
+      
+            <a class="list-item" href="#">
+              <img src="https://s1.ax1x.com/2020/10/26/BugEzF.jpg">
+              <p class="item-text">
+                <span class="item-select"><</span>
+                    Tribute Page
+                <span class="item-select">/></span>
+              </p>
+            </a>
+      
+            <a class="list-item" href="#">
+              <img src="https://s1.ax1x.com/2020/10/26/BKgmBd.png">
+              <p class="item-text">
+                <span class="item-select"><</span>
+                    TRandom Quote Machine
+                <span class="item-select">/></span>
+              </p>
+            </a>
+      
+            <a class="list-item" href="#">
+              <img src="https://s1.ax1x.com/2020/10/26/BKgrgU.png">
+              <p class="item-text">
+                <span class="item-select"><</span>
+                    JavaScript Calculator
+                <span class="item-select">/></span>
+              </p>
+            </a>
+      
+          </div>
+      
+          <div class="project-list"">
+            <a class=" list-item" href="#">
+            <img src="https://s1.ax1x.com/2020/10/26/BKgcDJ.jpg">
+            <p class="item-text">
+              <span class="item-select"><</span>
+                  Map Data Across the Globe
+              <span class="item-select">/></span>
+            </p>
+            </a>
+      
+            <a class="list-item" href="#">
+              <img src="https://s1.ax1x.com/2020/10/26/BKg58K.png">
+              <p class="item-text">
+                <span class="item-select"><</span>
+                    Wikipedia Viewer
+                <span class="item-select">/></span>
+              </p>
+            </a>
+      
+            <a class="list-item" href="#">
+              <img src="https://s1.ax1x.com/2020/10/26/BKgIgO.png">
+              <p class="item-text">
+                <span class="item-select"><</span>
+                    Tic Tac Toe Game
+                <span class="item-select">/></span>
+              </p>
+            </a>
+          </div>
+      
+          <a id="show-all" href="">show all ></a>
+        </section>
+      
+        <section id="more-section">
+          <h1 class="more-title">Let's work together...</h1>
+          <p class="more-p">How do you take your coffee?</p>
+      
+          <ul>
+            <li><a href="#">Facebook</a></li>
+            <li><a id="profile-link" href="#" target="_">Github</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Send a mail</a></li>
+            <li><a href="#">Call me</a></li>
+          </ul>
+        </section>
+      </main>
+                           
+      <footer id="contact">
+        <p>**This is just a fake portfolio. All the projects and contact details given are not real.</p>
+        <p>© Created for freeCodeCamp</p>
+      </footer>
+  </body>
+</html>
